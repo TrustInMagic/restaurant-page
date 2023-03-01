@@ -1,3 +1,5 @@
+import icon from './assets/icon.png';
+
 export function addElementToDom(newElement, parent) {
   parent.appendChild(newElement);
 }
@@ -19,6 +21,10 @@ export default function buildPage() {
   const firstLink = document.createElement('a');
   const secondLink = document.createElement('a');
   const thirdLink = document.createElement('a');
+  const footer = document.createElement('div');
+  const footerInfo = document.createElement('span');
+  const footerIcon = new Image();
+  footerIcon.src = icon;
 
   addElementToDom(header, content);
   addElementToDom(middle, content);
@@ -27,11 +33,15 @@ export default function buildPage() {
   addElementToDom(firstLink, nav);
   addElementToDom(secondLink, nav);
   addElementToDom(thirdLink, nav);
+  addElementToDom(footer, content);
+  addElementToDom(footerIcon, footer);
+  addElementToDom(footerInfo, footer);
 
   addTextContentToElement('Sun Bowl', title);
   addTextContentToElement('Home', firstLink);
   addTextContentToElement('Menu', secondLink);
   addTextContentToElement('Contact', thirdLink);
+  addTextContentToElement('info@sun-bowl.com', footerInfo)
 
   addClassToElement('header', header);
   addClassToElement('nav', nav);
@@ -39,4 +49,7 @@ export default function buildPage() {
   addClassToElement('home', firstLink);
   addClassToElement('menu', secondLink);
   addClassToElement('contact', thirdLink);
+  addClassToElement('footer', footer);
+  addClassToElement('icon', footerIcon);
+  addClassToElement('info', footerInfo)
 }
